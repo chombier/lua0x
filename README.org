@@ -12,14 +12,16 @@
   
 * Requirements
   
-  The basic dependencies are lua 5.1 and luabind. A decent c++11
-  compiler is also needed (=auto=, lambdas and template aliases are
-  needed). The following command should take care of the dependencies
-  under Debian/Ubuntu:
+  The basic code dependencies are =lua= 5.1 and =luabind=. A decent
+  c++11 compiler is also needed (=auto=, lambdas and template aliases
+  are needed). 
 
-: sudo apt-get install lua5.1 libluabind-dev
+  The build "system" uses QMake and pkg-config. The following command
+  should take care of everything under Debian/Ubuntu:
+
+: sudo apt-get install lua5.1 libluabind-dev qt4-qmake pkg-config
   
-  Have a look at =lua0x.pro= can be tweaked to build as a library or an example
+  Have a look at =lua0x.pro= to build as a library or an example
   executable.
 
 * Example
