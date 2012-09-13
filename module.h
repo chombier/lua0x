@@ -21,16 +21,17 @@ namespace lua {
     template<class F>
     const module& operator()(const char* fun_name, const F& f) const {
       typedef meta::func_type<F> func_type;
-      
-      std::function< func_type > fun = f;
 
       // register function object type while we're at it
       luabind::class_< std::function<func_type> >( typeid(func_type).name() )
 	.def("__call", &std::function<func_type>::operator());
-      
+
+      // wrap the function object
+      std::function< func_type > fun = f;
+
       // concatenate scope with function declaration
       scope[name].operator,
-	( luabind::def( fun_name, luabind::tag_function< func_type >(fun) ) );
+	( luabind::def( fun_name, luabind::tag_function< func_type >( std::move(fun)) ) );
       
       return *this;
     }
