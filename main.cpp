@@ -7,7 +7,7 @@ int main(int, char** ) {
   // lua state wrapper
   lua::state state;
 
-  // declare and init global lua module 'cxx'
+  // init stuff and declare a global lua module 'cxx'
   lua::module::init( state, "cxx" );
   
   // declare a lua module under global name 'test'
