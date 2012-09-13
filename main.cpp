@@ -7,11 +7,11 @@ int main(int, char** ) {
   // lua state wrapper
   lua0x::state state;
 
-  // init stuff and declare a global lua module 'cxx'
+  // init stuff and declare the global lua module 'cxx'
   lua0x::module::init( state, "cxx" );
   
-  // declare a lua module: it will go under global name 'test' once
-  // loaded.
+  // declare a lua module. will appear under the lua global name
+  // 'test' once loaded.
   lua0x::module test("test");
   
   // binds a c++11 lambda as test.echo

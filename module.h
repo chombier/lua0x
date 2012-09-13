@@ -14,10 +14,11 @@ namespace lua0x {
   public:
     typedef std::map< std::string, luabind::scope > scope_type;
     
-    // lua module with (global) name @name
+    // declare a lua module with (global) name @name
     module( const std::string& name );
     
-    // binds c++ function @f to lua module member @fun_name
+    // binds c++ function @f to lua module member @fun_name. calls to
+    // this function may be chained.
     template<class F>
     const module& operator()(const char* fun_name, const F& f) const {
       typedef meta::func_type<F> func_type;
@@ -37,12 +38,11 @@ namespace lua0x {
     }
 
 
-    // initializes stuff. call this after the lua interpreter is
+    // initializes stuff: call this after the lua interpreter is
     // started. then, load cpp modules from lua side with:
     // cpp.load('my_module') 
     static void init(lua_State* L, const char* name = "cpp");
     
-
   private:
     static scope_type scope;
 
