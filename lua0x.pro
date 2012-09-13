@@ -1,8 +1,11 @@
 
+CONFIG = 
+QT =
 
 TEMPLATE = app
 
 INCLUDEPATH += ..
+
 
 contains(TEMPLATE, lib) {
     TARGET = lib/lua0x
@@ -18,4 +21,4 @@ QMAKE_CXXFLAGS += -std=c++11
 CONFIG += link_pkgconfig
 
 SOURCES += module.cpp state.cpp
-PKGCONFIG += luabind lua5.1
+PKGCONFIG += luabind

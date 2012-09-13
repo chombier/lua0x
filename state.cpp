@@ -1,6 +1,6 @@
 #include "state.h"
 
-#include <lua5.1/lua.hpp>
+#include <lua.hpp>
 
 namespace lua0x {
 
