@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <iostream>
 
-namespace lua {
+namespace lua0x {
 
   module::module( const std::string& name)
     : name(name) { 

@@ -5,7 +5,7 @@
 
 struct lua_State;
 
-namespace lua {
+namespace lua0x {
 
   class state {
     lua_State* impl;

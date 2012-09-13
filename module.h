@@ -5,9 +5,9 @@
 #include <luabind/luabind.hpp>
 #include <luabind/tag_function.hpp>
 
-#include "meta.h"
+#include <lua0x/meta.h>
 
-namespace lua {
+namespace lua0x {
 
   class module {
     const std::string name;
@@ -22,7 +22,7 @@ namespace lua {
     const module& operator()(const char* fun_name, const F& f) const {
       typedef meta::func_type<F> func_type;
 
-      // register function object type while we're at it
+      // register std::function object type while we're at it
       luabind::class_< std::function<func_type> >( typeid(func_type).name() )
 	.def("__call", &std::function<func_type>::operator());
 
@@ -38,8 +38,8 @@ namespace lua {
 
 
     // initializes stuff. call this after the lua interpreter is
-    // running. then, load cpp modules from lua side with:
-    // cpp.load('my_module')  -- my_module
+    // started. then, load cpp modules from lua side with:
+    // cpp.load('my_module') 
     static void init(lua_State* L, const char* name = "cpp");
     
 

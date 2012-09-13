@@ -2,7 +2,7 @@
 
 #include <lua5.1/lua.hpp>
 
-namespace lua {
+namespace lua0x {
 
 
   state::state() : impl( lua_open() )  { }

@@ -2,6 +2,7 @@
 
 TEMPLATE = app
 
+INCLUDEPATH += ..
 
 contains(TEMPLATE, lib) {
     TARGET = lib/lua0x
