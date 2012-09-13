@@ -1,0 +1,7 @@
+
+
+* make it work with different lua states
+
+* add some load-path handling stuff to lua0x::state
+
+* wrap lua function calling from c++ as well
