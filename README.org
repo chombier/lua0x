@@ -1,5 +1,3 @@
-Lua0x
-
 * Introduction
 
   =Lua0x= is a very simple c++11 library for registering c++ lambdas
