@@ -2,27 +2,27 @@
 
   *Lua0x* is a very simple c++11 library for registering c++ lambdas
   under a lua module (see the example below). It is intended to be
-  lightweight, thus easily copy-pasta'd where needed.
+  lightweight, and thus easily copy-pasta'd where needed.
 
   It works by wrapping lambdas under std::function objects, and
   registering the std::function types to luabind when needed. Any
-  function parameter/return types will work as long as they are
-  registered with luabind before function calls (basic types and
-  std::string are already).
+  function parameter/return type will work, as long as it is
+  registered with luabind before the function call (basic types and
+  std::string are already registered).
   
 * Requirements
   
-  The basic code dependencies are lua 5.1 and luabind. A decent c++11
-  compiler is also needed (auto, lambdas and template aliases).
+  The code dependencies are lua 5.1 and luabind. A decent c++11
+  compiler is also needed (/i.e./ auto, lambdas and template aliases).
 
   The build "system" uses QMake and pkg-config. The following command
   should take care of everything under Debian/Ubuntu:
 
 : sudo apt-get install lua5.1 libluabind-dev qt4-qmake pkg-config
   
-  Have a look at ~lua0x.pro~ to build as a library or an example
-  executable.
-
+  Have a look at ~lua0x.pro~ and modify the ~TEMPLATE=~ line in order
+  to build as a library or as an example executable.
+  
   Then:
 
 : qmake
