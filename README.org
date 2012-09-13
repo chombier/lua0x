@@ -33,19 +33,19 @@
 Taken from ~main.cpp~:
 
 #+BEGIN_SRC CPP
-#include "module.h"
-#include "state.h"
+#include <lua0x/module.h>
+#include <lua0x/state.h>
 
 int main(int, char** ) {
 
   // lua state wrapper
-  lua::state state;
+  lua0x::state state;
 
   // init stuff and declare a global lua module 'cxx'
-  lua::module::init( state, "cxx" );
+  lua0x::module::init( state, "cxx" );
   
   // declare a lua module under global name 'test'
-  lua::module test("test");
+  lua0x::module test("test");
 
   // binds a c++11 lambda as test.echo
   test("echo", [](const std::string& name) { 
