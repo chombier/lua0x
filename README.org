@@ -2,8 +2,14 @@
 
   =Lua0x= is a very simple c++11 library for registering c++ lambdas
   under a lua module (see the example below). It is intended to be
-  small, thus easily copy-pasta'd where needed.
+  lightweight, thus easily copy-pasta'd where needed.
 
+  It works by wrapping lambdas under =std::function= objects, and
+  registering the =std::function= types to luabind when needed. Any
+  function parameter/return types will work as long as they are
+  registered with luabind before function calls (basic types and
+  =std::string= are already).
+  
 * Requirements
   
   The basic dependencies are lua 5.1 and luabind. A decent c++11
@@ -15,7 +21,6 @@
   
   Have a look at =lua0x.pro= can be tweaked to build as a library or an example
   executable.
-
 
 * Example
 

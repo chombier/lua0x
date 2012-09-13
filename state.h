@@ -20,7 +20,7 @@ namespace lua {
     int string(const std::string& s) const;
     int file(const std::string& filename) const;
     
-    // returns error given string/file return type, if any
+    // error string given return code of the above
     std::string error(int) const;
 
     // open libs
