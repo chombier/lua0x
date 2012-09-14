@@ -31,7 +31,7 @@ int main(int, char** ) {
   state.string("lua0x.load('test')");
   
   // say hi from lua
-  state.string("test.echo('hi thar !')");
+  state.string("test.echo('hi there !')");
   
   // modify foo from lua
   state.string("test.set( 42 )");
