@@ -101,7 +101,23 @@ loaded from the (non-embedded) lua interpreter. See file
 ~example/main/test.cpp~ for more details.
 
 Building this example will create =lib/libtest.so=. Then, run
-~example/test/test.lua~ for a use example.
+~example/test/test.lua~ for a use example:
+
+#+BEGIN_SRC lua
+-- adjust package.path
+package.path = '../../?.lua;' .. package.path
+
+-- load lua0x
+require 'lua0x'
+
+-- load module 'test' from libtest.so
+lua0x.loadlib('libtest.so', 'test')
+
+-- use module test
+test.echo('hi there !')
+test.set( 42 )
+test.echo('foo: '.. test.get() )
+#+END_SRC
 
 * License
 
