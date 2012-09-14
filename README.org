@@ -46,7 +46,7 @@ Build the examples using:
 ** From c++
 
 Here we start the lua interpreter and declare a lua module from a c++
-program. The file ~example/main/main.cpp~ is shown below:
+program. The file ~examples/main/main.cpp~ is shown below:
 
 #+BEGIN_EXAMPLE
 #include <lua0x/module.h>
