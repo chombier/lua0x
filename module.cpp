@@ -13,8 +13,11 @@ namespace lua0x {
 
   }
 
+  void module::push(const luabind::scope& s) const {
+    scope[name].operator,(s);
+  }
 
-  void module::init(lua_State* L, const char* name ) {
+  void module::init(lua_State* L) {
 
       auto fun = [L](const std::string& name) {
 	auto it = scope.find(name);
@@ -25,6 +28,8 @@ namespace lua0x {
 	
 	load( *it, L );
       };
+      
+      const char* name = "lua0x";
       
       module cpp(name);
       cpp("load", fun);

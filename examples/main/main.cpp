@@ -7,8 +7,8 @@ int main(int, char** ) {
   // lua state wrapper
   lua0x::state state;
 
-  // init stuff and declare the global lua module 'cxx'
-  lua0x::module::init( state, "cxx" );
+  // init stuff and declare the global lua module 'lua0x'
+  lua0x::module::init( state );
   
   // declare a lua module. it will appear under the lua global name
   // 'test' once loaded.
@@ -28,7 +28,7 @@ int main(int, char** ) {
     ;
   
   // load the test module in lua
-  state.string("cxx.load('test')");
+  state.string("lua0x.load('test')");
   
   // say hi from lua
   state.string("test.echo('hi thar !')");
