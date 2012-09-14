@@ -10,20 +10,37 @@ int main(int, char** ) {
   // init stuff and declare the global lua module 'cxx'
   lua0x::module::init( state, "cxx" );
   
-  // declare a lua module. will appear under the lua global name
+  // declare a lua module. it will appear under the lua global name
   // 'test' once loaded.
   lua0x::module test("test");
   
-  // binds a c++11 lambda as test.echo
+  // binds a lambda as test.echo
   test("echo", [](const std::string& name) { 
       std::cout << name << std::endl; 
     });
   
+  // capturing lambdas
+  int foo = 0;
+
+  test
+    ("get", [&] { return foo; } )
+    ("set", [&](int x) { foo = x; } )
+    ;
+  
   // loads the test module in lua
   state.string("cxx.load('test')");
   
-  // calls test.echo
-  state.string("test.echo('lolwat')");
+  // say hi from lua
+  state.string("test.echo('hi thar !')");
+  
+  // modify foo from lua
+  state.string("test.set( 42 )");
+  
+  // we need to open_libs before using tostring
+  state.libs();
+
+  // print foo value from lua
+  state.string("test.echo( 'foo: ' .. test.get() )" );
   
   return 0;
 }
