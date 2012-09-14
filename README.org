@@ -5,10 +5,6 @@
   building lua modules from c++ (see some examples below). The library
   is very lightweight thus easily copy-pastable where needed.
   
-  It works on top of luabind by wrapping lambdas under std::function
-  objects, and registering the various std::function types to luabind
-  when needed. 
-
   Any function parameter/return type will work, as long as it is
   registered with luabind before the function call happens (basic
   types and std::string are automatically registered by luabind).

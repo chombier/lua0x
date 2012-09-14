@@ -22,21 +22,13 @@ namespace lua0x {
     template<class F>
     const module& operator()(const char* fun_name, const F& f) const {
       typedef meta::func_type<F> func_type;
-
-      // register std::function object type while we're at it
-      luabind::class_< std::function<func_type> >( typeid(func_type).name() )
-	.def("__call", &std::function<func_type>::operator());
-
-      // wrap the function object
-      std::function< func_type > fun = f;
-
+      
       // concatenate scope with function declaration
-      push( luabind::def( fun_name, luabind::tag_function< func_type >( std::move(fun)) ) );
+      push( luabind::def( fun_name, luabind::tag_function< func_type >( std::move(f) ) ) );
       
       return *this;
     }
-
-
+    
     // initializes stuff: call this after the lua interpreter is
     // started. then, load cpp modules from lua side with:
     // cpp.load('my_module') 
