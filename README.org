@@ -51,7 +51,7 @@ int main(int, char** ) {
   // 'test' once loaded.
   lua0x::module test("test");
   
-  // binds a lambda as test.echo
+  // bind a lambda as test.echo
   test("echo", [](const std::string& name) { 
       std::cout << name << std::endl; 
     });
@@ -64,7 +64,7 @@ int main(int, char** ) {
     ("set", [&](int x) { foo = x; } )
     ;
   
-  // loads the test module in lua
+  // load the test module in lua
   state.string("cxx.load('test')");
   
   // say hi from lua
