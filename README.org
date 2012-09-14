@@ -102,10 +102,10 @@ This example will create =bin/main=.
 
 Here we create the same extension as above, but built as a library and
 loaded from the (non-embedded) lua interpreter. See file
-~example/main/test.cpp~ for more details.
+~examples/main/test.cpp~ for more details.
 
 Building this example will create =lib/libtest.so=. Then, run
-~example/test/test.lua~ for a use example:
+~examples/test/test.lua~ for a use example:
 
 #+BEGIN_EXAMPLE
 -- adjust package.path
