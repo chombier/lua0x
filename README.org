@@ -21,7 +21,7 @@
   The build "system" uses QMake and pkg-config. The following command
   should take care of everything under Debian/Ubuntu:
 
-: sudo apt-get install lua5.1 libluabind-dev qt4-qmake pkg-config
+: $ sudo apt-get install lua5.1 libluabind-dev qt4-qmake pkg-config
   
   Have a look at ~lua0x.pro~ and modify the ~TEMPLATE=~ line in order
   to build as a library or as an example executable.
@@ -30,8 +30,8 @@
 
    Easy-peasy:
 
-: qmake
-: make
+: $ qmake
+: $ make
 
 This will build =lib/liblua0x.so=.
 
@@ -39,9 +39,9 @@ This will build =lib/liblua0x.so=.
 
 Build the examples using:
 
-: cd examples
-: qmake
-: make
+: $ cd examples
+: $ qmake
+: $ make
 
 ** From c++
 
