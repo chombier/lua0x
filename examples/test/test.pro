@@ -1,7 +1,7 @@
 ROOT = ../..
 
 TEMPLATE = lib
-TARGET = $ROOT/lib/test
+TARGET = $$ROOT/lib/test
 
 INCLUDEPATH += $$ROOT/..
 SOURCES = test.cpp
