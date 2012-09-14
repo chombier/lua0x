@@ -1,6 +1,8 @@
 #ifndef LUA_META_H
 #define LUA_META_H
 
+#include <type_traits>
+
 namespace lua0x {
   
   namespace meta {
@@ -22,6 +24,10 @@ namespace lua0x {
     template<class F>
     using func_type = typename decltype( impl::get_func_type(&F::operator()) )::type;
     
+    // shorthand for std::decay
+    template<class F>
+    using decay = typename std::decay<F>::type;
+
   }
 }
 

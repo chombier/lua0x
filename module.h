@@ -6,6 +6,7 @@
 #include <luabind/tag_function.hpp>
 
 #include <lua0x/meta.h>
+#include <utility>
 
 namespace lua0x {
 
@@ -20,11 +21,11 @@ namespace lua0x {
     // binds c++ function @f to lua module member @fun_name. calls to
     // this function may be chained.
     template<class F>
-    const module& operator()(const char* fun_name, const F& f) const {
-      typedef meta::func_type<F> func_type;
+    const module& operator()(const char* fun_name, F&& f) const {
+      typedef meta::func_type< meta::decay<F> > func_type;
       
       // concatenate scope with function declaration
-      push( luabind::def( fun_name, luabind::tag_function< func_type >( std::move(f) ) ) );
+      push( luabind::def( fun_name, luabind::tag_function< func_type >( std::forward<F>(f) ) ) );
       
       return *this;
     }
