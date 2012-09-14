@@ -1,9 +1,9 @@
 * Introduction
 
   *Lua0x* is a very simple c++11 library for registering c++ lambdas
-  under a lua module (see the example below). It provides a very fast
-  and flexible way of building lua modules from c++. The library is
-  very lightweight thus easily copy-pastable where needed.
+  under a lua module. It provides a very fast and flexible way of
+  building lua modules from c++ (see some examples below). The library
+  is very lightweight thus easily copy-pastable where needed.
   
   It works on top of luabind by wrapping lambdas under std::function
   objects, and registering the various std::function types to luabind
