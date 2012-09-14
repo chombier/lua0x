@@ -26,10 +26,14 @@
   Have a look at ~lua0x.pro~ and modify the ~TEMPLATE=~ line in order
   to build as a library or as an example executable.
   
-  Then:
+** Building
+
+   Easy-peasy:
 
 : qmake
 : make
+
+This will build =lib/liblua0x.so=.
 
 * Examples
 
