@@ -35,7 +35,7 @@
 
 Build the examples using:
 
-: cd example
+: cd examples
 : qmake
 : make
 
