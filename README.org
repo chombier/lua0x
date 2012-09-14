@@ -101,7 +101,7 @@ This example will create =bin/main=.
 ** From lua
 
 Here we create the same extension as above, but built as a library and
-loaded from the (non-embedded) lua interpreter. See file
+loaded from the (non-embedded) lua interpreter. See the file
 ~examples/main/test.cpp~ for more details.
 
 Building this example will create =lib/libtest.so=. Then, run
