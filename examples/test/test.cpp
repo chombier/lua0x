@@ -2,12 +2,12 @@
 
 // we wrap the module definition inside a singleton class ctor: the
 // module will be automatically registered on library load
-struct test {
+static struct def {
 
   lua0x::module module;
   int foo;
   
-  test() 
+	def() 
     : module("test"),
       foo(0) {
 
@@ -20,12 +20,11 @@ struct test {
     ;
   }
 
-};
+} instance;
 
-static test instance;
 
-// dummy init 
-extern "C" int init(lua_State*) {
-  
+extern "C" int luaopen_test(lua_State* L) {
+	instance.module.load( L );
+	
   return 0;
 }

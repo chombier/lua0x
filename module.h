@@ -25,7 +25,8 @@ namespace lua0x {
       typedef meta::func_type< meta::decay<F> > func_type;
       
       // concatenate scope with function declaration
-      push( luabind::def( fun_name, luabind::tag_function< func_type >( std::forward<F>(f) ) ) );
+      push( luabind::def( fun_name, 
+                          luabind::tag_function< func_type >( std::forward<F>(f) ) ) );
       
       return *this;
     }
@@ -33,13 +34,16 @@ namespace lua0x {
     // initializes stuff: call this after the lua interpreter is
     // started. then, load cpp modules from lua side with:
     // cpp.load('my_module') 
-    static void init(lua_State* L);
+    static int init(lua_State* L);
     
+	  // loads the module in lua
+	  void load(lua_State* L) const;
+	   
   private:
     static scope_type scope;
 
-    void push(const luabind::scope& ) const;
-    static void load(const scope_type::value_type& x, lua_State* L);
+    void push(const luabind::scope& ) const;    
+	  static void load(const scope_type::value_type& x, lua_State* L);
   };
   
 }

@@ -7,26 +7,39 @@ struct lua_State;
 
 namespace lua0x {
 
-  class state {
-    lua_State* impl;
-  public:
+	class state {
+		lua_State* impl;
+	public:
 
-    state();
-    ~state();
+		// give an existing lua_State 
+		state(lua_State* = 0);
+		~state();
     
-    operator lua_State*() const;
+		operator lua_State*() const;
 
-    // do string/file
-    int string(const std::string& s) const;
-    int file(const std::string& filename) const;
+		void open();
+		void close();
+
+		// do string/file
+		int string(const std::string& s) const;
+		int file(const std::string& filename) const;
     
-    // error string given return code of the above
-    std::string error(int) const;
+		// error string given return code of the above
+		std::string error(int) const;
 
-    // open libs
-    void libs() const;
+		// open libs
+		void libs() const;
 
-  };
+		// automatic open/close 
+		struct raii_type {
+			state& s;
+			raii_type(state& s);
+			~raii_type();
+		};
+
+		raii_type raii();
+
+	};
 
 
 

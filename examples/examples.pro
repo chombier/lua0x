@@ -1,4 +1,4 @@
 
 TEMPLATE = subdirs
 
-SUBDIRS += main test
+SUBDIRS += main test readline

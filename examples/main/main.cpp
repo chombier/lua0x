@@ -1,12 +1,14 @@
-
 #include <lua0x/module.h>
 #include <lua0x/state.h>
 
 int main(int, char** ) {
 
-  // lua state wrapper
+  // lua state
   lua0x::state state;
 
+  // automatic open/close through RAII
+  auto raii = state.raii();
+  
   // init stuff and declare the global lua module 'lua0x'
   lua0x::module::init( state );
   
