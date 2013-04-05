@@ -1,11 +1,11 @@
-#ifndef LUA_MODULE_H
-#define LUA_MODULE_H
+#ifndef LUA0X_MODULE_H
+#define LUA0X_MODULE_H
 
 #include <lua5.1/lua.hpp>
 #include <luabind/luabind.hpp>
-#include <luabind/tag_function.hpp>
 
-#include <lua0x/meta.h>
+
+#include <lua0x/lambda.h>
 #include <utility>
 
 namespace lua0x {
@@ -22,12 +22,11 @@ namespace lua0x {
     // this function may be chained.
     template<class F>
     const module& operator()(const char* fun_name, F&& f) const {
-      typedef meta::func_type< meta::decay<F> > func_type;
-      
-      // concatenate scope with function declaration
-      push( luabind::def( fun_name, 
-                          luabind::tag_function< func_type >( std::forward<F>(f) ) ) );
-      
+	    
+	    // concatenate scope with function declaration
+	    push( luabind::def( fun_name, 
+	                        lua0x::lambda( std::forward<F>(f) ) ) );
+	    
       return *this;
     }
     

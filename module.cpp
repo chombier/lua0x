@@ -7,10 +7,11 @@ namespace lua0x {
 
 	module::module( const std::string& name)
 		: name(name) { 
-		if( scope.find(name) != scope.end() ) {
-			throw std::logic_error("module " + name + " already exists");
-		}
 
+		// if( scope.find(name) != scope.end() ) {
+		// 	throw std::logic_error("module " + name + " already exists");
+		// }
+		
 	}
 
 	void module::push(const luabind::scope& s) const {
