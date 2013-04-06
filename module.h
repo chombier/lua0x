@@ -1,8 +1,8 @@
 #ifndef LUA0X_MODULE_H
 #define LUA0X_MODULE_H
 
-#include <lua5.1/lua.hpp>
 #include <luabind/luabind.hpp>
+#include <lua5.1/lua.hpp>
 
 
 #include <lua0x/lambda.h>

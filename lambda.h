@@ -2,7 +2,6 @@
 #define LUA0X_LAMBDA_H
 
 #include <lua0x/func_type.h>
-#include <luabind/luabind.hpp>
 #include <luabind/tag_function.hpp>
 
 namespace lua0x {
